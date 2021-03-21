@@ -13,7 +13,7 @@ namespace UrlShorteningApp.Services
         }
         public string GenerateCode(string url)
         {
-            return Guid.NewGuid().GetHashCode().ToString("x");
+            return url.GetHashCode().ToString("x");
         }
 
         public bool Parse(string url)
