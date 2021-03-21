@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    @model IEnumerable<UrlShorteningApp.Models.UrlModel>
+}
+
+<div class="text-center">
+    <h2>Enter url to shorten</h2>
+    @using (Html.BeginForm("ShortenUrl", "Home", FormMethod.Post))
+    {
+        <div>
+            <lable>Url:</lable>
+            <input type="text" id="txtUrl" name="originalUrl"/>
+            <button type="submit">Submit</button>
+        </div>
+    }
+</div>
+
+
+@if (Model != null && Model.Count() > 0)
+{
+    <div class="shortened-urls">
+        @await Html.PartialAsync("_UrlList", Model)        
+    </div>
+}

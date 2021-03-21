@@ -1,0 +1,20 @@
+﻿@model IEnumerable<UrlShorteningApp.Models.UrlModel>
+
+<h3>Shortend Urls:</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Original Url</th>
+            <th>Shortened Url</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.OriginalUrl</td>            
+            <td><a href="@item.ShortenedUrl" target="_blank">@item.ShortenedUrl</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
